@@ -1,5 +1,11 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import MyComponent from './Example/MyComponent';
+/**
+ * 
+ * 2 components: class component / function component (function, arrow)
+ */
+
 
 function App() {
   return (
@@ -7,7 +13,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello world!
         </p>
         <a
           className="App-link"
@@ -17,6 +23,7 @@ function App() {
         >
           Learn React
         </a>
+        <MyComponent/>
       </header>
     </div>
   );
