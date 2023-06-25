@@ -1,27 +1,50 @@
 import React from 'react'
+import ChildComponent from './ChildComponent'
+import AddComponent from './AddComponent'
 
 class MyComponent extends React.Component{
 
     state = {
-        name: 'Trung',
-        company: 'BMIS'
+        arrJobs: [
+            { id: '1', title: 'Developer', salary: '500' },
+            { id: '2', title: 'Tester', salary: '400' },
+            { id: '3', title: 'Project Manager', salary: '600'}
+        ]
     }
 
-    handleOnChangeName = (event) => {
+    addNewJob = (job) => {
+        console.log(job)
         this.setState({
-            name: event.target.value
+            arrJobs: [...this.state.arrJobs, job]
         })
     }
 
-    render(){
+    deleteAJob = (job) => {
+        let currentJobs = this.state.arrJobs
+        currentJobs = currentJobs.filter(item => item.id != job.id)
+        this.setState({
+            arrJobs: currentJobs
+        })
+    }
 
+
+    onClick = (event) => {
+        event.preventDefault()
+        console.log('check data input: ', this.state)
+    }
+
+    render(){
+        console.log('>>> call render: ', this.state)
         return (
             <>
-                <div> 
-                    <input value={this.state.name} type="text"
-                        onChange={(event) => this.handleOnChangeName(event)} />
-                    My name is {this.state.name}</div>
-                <div> I work at {this.state.company}.</div>        
+                <AddComponent
+                    addNewJob={this.addNewJob}
+                />
+                
+                <ChildComponent
+                    arrJobs={this.state.arrJobs}
+                    deleteAJob={this.deleteAJob}
+                />
             </>
         )
             
