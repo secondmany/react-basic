@@ -4,10 +4,11 @@ import MyComponent from './Example/MyComponent';
 import ListTodo from './Todos/ListTodo';
 import Home from './Example/Home';
 import Nav from './Nav/Nav';
+import ListUser from './Users/ListUser';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 /**
  *
@@ -31,9 +32,22 @@ function App() {
 					{/* <Home /> */}
 
 					<Routes>
-						<Route path="/">component={Home}</Route>
-						<Route path="todo"> component={ListTodo}</Route>
-						<Route path="about"> component={MyComponent}</Route>
+						<Route
+							path="/"
+							element={<Home />}
+						/>
+						<Route
+							path="todo"
+							element={<ListTodo />}
+						/>
+						<Route
+							path="about"
+							element={<MyComponent />}
+						/>
+						<Route
+							path="user"
+							element={<ListUser />}
+						/>
 					</Routes>
 				</header>
 
